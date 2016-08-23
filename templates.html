@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Working with trees in templates &mdash; django-mptt 0.8.1 documentation</title>
+    <title>Working with trees in templates &mdash; django-mptt 0.8.6 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.8.1',
+        VERSION:     '0.8.6',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="django-mptt 0.8.1 documentation" href="index.html" />
+    <link rel="top" title="django-mptt 0.8.6 documentation" href="index.html" />
     <link rel="next" title="Utilities for working with trees" href="utilities.html" />
     <link rel="prev" title="Working with trees in Django forms" href="forms.html" /> 
   </head>
@@ -43,7 +43,7 @@
         <li class="right" >
           <a href="forms.html" title="Working with trees in Django forms"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">django-mptt 0.8.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">django-mptt 0.8.6 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -103,18 +103,18 @@ trees.</p>
 <p>This tag renders a section of your template recursively for each node in your
 tree.</p>
 <p>For example:</p>
-<div class="highlight-html+django"><div class="highlight"><pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;root&quot;</span><span class="nt">&gt;</span>
+<div class="highlight-html+django"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;root&quot;</span><span class="p">&gt;</span>
     <span class="cp">{%</span> <span class="k">recursetree</span> <span class="nv">nodes</span> <span class="cp">%}</span>
-        <span class="nt">&lt;li&gt;</span>
+        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
             <span class="cp">{{</span> <span class="nv">node.name</span> <span class="cp">}}</span>
             <span class="cp">{%</span> <span class="k">if</span> <span class="k">not</span> <span class="nv">node.is_leaf_node</span> <span class="cp">%}</span>
-                <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;children&quot;</span><span class="nt">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;children&quot;</span><span class="p">&gt;</span>
                     <span class="cp">{{</span> <span class="nv">children</span> <span class="cp">}}</span>
-                <span class="nt">&lt;/ul&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
             <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
-        <span class="nt">&lt;/li&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
     <span class="cp">{%</span> <span class="k">endrecursetree</span> <span class="cp">%}</span>
-<span class="nt">&lt;/ul&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>Note the special variables <code class="docutils literal"><span class="pre">node</span></code> and <code class="docutils literal"><span class="pre">children</span></code>.
@@ -130,7 +130,7 @@ These are magically inserted into your context while you&#8217;re inside the
 <p>If you already have variables called <code class="docutils literal"><span class="pre">node</span></code> or <code class="docutils literal"><span class="pre">children</span></code> in your
 template, and you need to access them inside the <code class="docutils literal"><span class="pre">recursetree</span></code> block,
 you&#8217;ll need to alias them to some other name first:</p>
-<div class="last highlight-html+django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">with</span> <span class="nv">node</span> <span class="k">as</span> <span class="nv">friendly_node</span> <span class="cp">%}</span>
+<div class="last highlight-html+django"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">with</span> <span class="nv">node</span> <span class="k">as</span> <span class="nv">friendly_node</span> <span class="cp">%}</span>
     <span class="cp">{%</span> <span class="k">recursetree</span> <span class="nv">nodes</span> <span class="cp">%}</span>
         <span class="cp">{{</span> <span class="nv">node.name</span> <span class="cp">}}</span> is friends with <span class="cp">{{</span> <span class="nv">friendly_node.name</span> <span class="cp">}}</span>
         <span class="cp">{{</span> <span class="nv">children</span> <span class="cp">}}</span>
@@ -150,12 +150,12 @@ have trees with depth &gt; 20, you should use these instead of the above.</p>
 <p>Populates a template variable with a <code class="docutils literal"><span class="pre">QuerySet</span></code> containing the full
 tree for a given model.</p>
 <p>Usage:</p>
-<div class="highlight-html+django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">full_tree_for_model</span> <span class="o">[</span><span class="nv">model</span><span class="o">]</span> <span class="k">as</span> <span class="o">[</span><span class="nv">varname</span><span class="o">]</span> <span class="cp">%}</span>
+<div class="highlight-html+django"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">full_tree_for_model</span> <span class="o">[</span><span class="nv">model</span><span class="o">]</span> <span class="k">as</span> <span class="o">[</span><span class="nv">varname</span><span class="o">]</span> <span class="cp">%}</span>
 </pre></div>
 </div>
 <p>The model is specified in <code class="docutils literal"><span class="pre">[appname].[modelname]</span></code> format.</p>
 <p>Example:</p>
-<div class="highlight-html+django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">full_tree_for_model</span> <span class="nv">tests.Genre</span> <span class="k">as</span> <span class="nv">genres</span> <span class="cp">%}</span>
+<div class="highlight-html+django"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">full_tree_for_model</span> <span class="nv">tests.Genre</span> <span class="k">as</span> <span class="nv">genres</span> <span class="cp">%}</span>
 </pre></div>
 </div>
 </div>
@@ -166,7 +166,7 @@ optionally counting the number of items associated with its children.</p>
 <p>A drilldown tree consists of a node&#8217;s ancestors, itself and its
 immediate children. For example, a drilldown tree for a book category
 &#8220;Personal Finance&#8221; might look something like:</p>
-<div class="highlight-html+django"><div class="highlight"><pre>Books
+<div class="highlight-html+django"><div class="highlight"><pre><span></span>Books
    Business, Finance &amp; Law
       Personal Finance
          Budgeting (220)
@@ -174,11 +174,11 @@ immediate children. For example, a drilldown tree for a book category
 </pre></div>
 </div>
 <p>Usage:</p>
-<div class="highlight-html+django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">drilldown_tree_for_node</span> <span class="o">[</span><span class="nv">node</span><span class="o">]</span> <span class="k">as</span> <span class="o">[</span><span class="nv">varname</span><span class="o">]</span> <span class="cp">%}</span>
+<div class="highlight-html+django"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">drilldown_tree_for_node</span> <span class="o">[</span><span class="nv">node</span><span class="o">]</span> <span class="k">as</span> <span class="o">[</span><span class="nv">varname</span><span class="o">]</span> <span class="cp">%}</span>
 </pre></div>
 </div>
 <p>Extended usage:</p>
-<div class="highlight-html+django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">drilldown_tree_for_node</span> <span class="o">[</span><span class="nv">node</span><span class="o">]</span> <span class="k">as</span> <span class="o">[</span><span class="nv">varname</span><span class="o">]</span> <span class="nv">count</span> <span class="o">[</span><span class="nv">foreign_key</span><span class="o">]</span> <span class="k">in</span> <span class="o">[</span><span class="nv">count_attr</span><span class="o">]</span> <span class="cp">%}</span>
+<div class="highlight-html+django"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">drilldown_tree_for_node</span> <span class="o">[</span><span class="nv">node</span><span class="o">]</span> <span class="k">as</span> <span class="o">[</span><span class="nv">varname</span><span class="o">]</span> <span class="nv">count</span> <span class="o">[</span><span class="nv">foreign_key</span><span class="o">]</span> <span class="k">in</span> <span class="o">[</span><span class="nv">count_attr</span><span class="o">]</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">drilldown_tree_for_node</span> <span class="o">[</span><span class="nv">node</span><span class="o">]</span> <span class="k">as</span> <span class="o">[</span><span class="nv">varname</span><span class="o">]</span> <span class="nv">cumulative</span> <span class="nv">count</span> <span class="o">[</span><span class="nv">foreign_key</span><span class="o">]</span> <span class="k">in</span> <span class="o">[</span><span class="nv">count_attr</span><span class="o">]</span> <span class="cp">%}</span>
 </pre></div>
 </div>
@@ -191,7 +191,7 @@ items associated with it through the given foreign key.</p>
 <p>If cumulative is also specified, this count will be for items related to
 the child node and all of its descendants.</p>
 <p>Examples:</p>
-<div class="highlight-html+django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">drilldown_tree_for_node</span> <span class="nv">genre</span> <span class="k">as</span> <span class="nv">drilldown</span> <span class="cp">%}</span>
+<div class="highlight-html+django"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">drilldown_tree_for_node</span> <span class="nv">genre</span> <span class="k">as</span> <span class="nv">drilldown</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">drilldown_tree_for_node</span> <span class="nv">genre</span> <span class="k">as</span> <span class="nv">drilldown</span> <span class="nv">count</span> <span class="nv">tests.Game.genre</span> <span class="k">in</span> <span class="nv">game_count</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">drilldown_tree_for_node</span> <span class="nv">genre</span> <span class="k">as</span> <span class="nv">drilldown</span> <span class="nv">cumulative</span> <span class="nv">count</span> <span class="nv">tests.Game.genre</span> <span class="k">in</span> <span class="nv">game_count</span> <span class="cp">%}</span>
 </pre></div>
@@ -231,7 +231,7 @@ parent last), under the key <code class="docutils literal"><span class="pre">'an
 <p>For example: given the sample tree below, the contents of the list
 which would be available under the <code class="docutils literal"><span class="pre">'ancestors'</span></code> key are given
 on the right:</p>
-<div class="last highlight-html+django"><div class="highlight"><pre>Books                    -&gt;  []
+<div class="last highlight-html+django"><div class="highlight"><pre><span></span>Books                    -&gt;  []
    Sci-fi                -&gt;  [u&#39;Books&#39;]
       Dystopian Futures  -&gt;  [u&#39;Books&#39;, u&#39;Sci-fi&#39;]
 </pre></div>
@@ -243,10 +243,10 @@ on the right:</p>
 enough information about the tree structure to create a hierarchical
 representation of the tree.</p>
 <p>Example:</p>
-<div class="highlight-html+django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">for</span> <span class="nv">genre</span><span class="o">,</span><span class="nv">structure</span> <span class="k">in</span> <span class="nv">genres</span><span class="o">|</span><span class="nf">tree_info</span> <span class="cp">%}</span>
-    <span class="cp">{%</span> <span class="k">if</span> <span class="nv">structure.new_level</span> <span class="cp">%}</span><span class="nt">&lt;ul&gt;&lt;li&gt;</span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="nt">&lt;/li&gt;&lt;li&gt;</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+<div class="highlight-html+django"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">genre</span><span class="o">,</span><span class="nv">structure</span> <span class="k">in</span> <span class="nv">genres</span><span class="o">|</span><span class="nf">tree_info</span> <span class="cp">%}</span>
+    <span class="cp">{%</span> <span class="k">if</span> <span class="nv">structure.new_level</span> <span class="cp">%}</span><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;&lt;</span><span class="nt">li</span><span class="p">&gt;</span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">li</span><span class="p">&gt;</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
         <span class="cp">{{</span> <span class="nv">genre.name</span> <span class="cp">}}</span>
-    <span class="cp">{%</span> <span class="k">for</span> <span class="nv">level</span> <span class="k">in</span> <span class="nv">structure.closed_levels</span> <span class="cp">%}</span><span class="nt">&lt;/li&gt;&lt;/ul&gt;</span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+    <span class="cp">{%</span> <span class="k">for</span> <span class="nv">level</span> <span class="k">in</span> <span class="nv">structure.closed_levels</span> <span class="cp">%}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
 </pre></div>
 </div>
@@ -259,7 +259,7 @@ defaulting to <code class="docutils literal"><span class="pre">'</span> <span cl
 <p>Each path item will be coerced to unicode, so a list of model instances
 may be given if required.</p>
 <p>Example:</p>
-<div class="highlight-html+django"><div class="highlight"><pre><span class="cp">{{</span> <span class="nv">some_list</span><span class="o">|</span><span class="nf">tree_path</span> <span class="cp">}}</span>
+<div class="highlight-html+django"><div class="highlight"><pre><span></span><span class="cp">{{</span> <span class="nv">some_list</span><span class="o">|</span><span class="nf">tree_path</span> <span class="cp">}}</span>
 <span class="cp">{{</span> <span class="nv">some_node.get_ancestors</span><span class="o">|</span><span class="nf">tree_path</span><span class="s2">:&quot; &gt; &quot;</span> <span class="cp">}}</span>
 </pre></div>
 </div>
@@ -270,16 +270,16 @@ may be given if required.</p>
 <p>Using <code class="docutils literal"><span class="pre">drilldown_tree_for_node</span></code> and <code class="docutils literal"><span class="pre">tree_info</span></code> together to render a
 drilldown menu for a node, with cumulative counts of related items for the node&#8217;s
 children:</p>
-<div class="highlight-html+django"><div class="highlight"><pre><span class="cp">{%</span> <span class="k">drilldown_tree_for_node</span> <span class="nv">genre</span> <span class="k">as</span> <span class="nv">drilldown</span> <span class="nv">cumulative</span> <span class="nv">count</span> <span class="nv">tests.Game.genre</span> <span class="k">in</span> <span class="nv">game_count</span> <span class="cp">%}</span>
+<div class="highlight-html+django"><div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">drilldown_tree_for_node</span> <span class="nv">genre</span> <span class="k">as</span> <span class="nv">drilldown</span> <span class="nv">cumulative</span> <span class="nv">count</span> <span class="nv">tests.Game.genre</span> <span class="k">in</span> <span class="nv">game_count</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">for</span> <span class="nv">node</span><span class="o">,</span><span class="nv">structure</span> <span class="k">in</span> <span class="nv">drilldown</span><span class="o">|</span><span class="nf">tree_info</span> <span class="cp">%}</span>
-    <span class="cp">{%</span> <span class="k">if</span> <span class="nv">structure.new_level</span> <span class="cp">%}</span><span class="nt">&lt;ul&gt;&lt;li&gt;</span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="nt">&lt;/li&gt;&lt;li&gt;</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+    <span class="cp">{%</span> <span class="k">if</span> <span class="nv">structure.new_level</span> <span class="cp">%}</span><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;&lt;</span><span class="nt">li</span><span class="p">&gt;</span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">li</span><span class="p">&gt;</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
     <span class="cp">{%</span> <span class="k">ifequal</span> <span class="nv">node</span> <span class="nv">genre</span> <span class="cp">%}</span>
-        <span class="nt">&lt;strong&gt;</span><span class="cp">{{</span> <span class="nv">node.name</span> <span class="cp">}}</span><span class="nt">&lt;/strong&gt;</span>
+        <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">node.name</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>
     <span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
-        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">node.get_absolute_url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="nt">&gt;</span><span class="cp">{{</span> <span class="nv">node.name</span> <span class="cp">}}</span><span class="nt">&lt;/a&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">node.get_absolute_url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">node.name</span> <span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
         <span class="cp">{%</span> <span class="k">ifequal</span> <span class="nv">node.parent_id</span> <span class="nv">genre.pk</span> <span class="cp">%}</span>(<span class="cp">{{</span> <span class="nv">node.game_count</span> <span class="cp">}}</span>)<span class="cp">{%</span> <span class="k">endifequal</span> <span class="cp">%}</span>
     <span class="cp">{%</span> <span class="k">endifequal</span> <span class="cp">%}</span>
-    <span class="cp">{%</span> <span class="k">for</span> <span class="nv">level</span> <span class="k">in</span> <span class="nv">structure.closed_levels</span> <span class="cp">%}</span><span class="nt">&lt;/li&gt;&lt;/ul&gt;</span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+    <span class="cp">{%</span> <span class="k">for</span> <span class="nv">level</span> <span class="k">in</span> <span class="nv">structure.closed_levels</span> <span class="cp">%}</span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
 </pre></div>
 </div>
@@ -289,15 +289,15 @@ to create a multiple-select, which:</p>
 <li>doesn&#8217;t contain root nodes</li>
 <li>displays the full path to each node</li>
 </ul>
-<div class="highlight-html+django"><div class="highlight"><pre><span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">&quot;classifiers&quot;</span> <span class="na">multiple=</span><span class="s">&quot;multiple&quot;</span> <span class="na">size=</span><span class="s">&quot;10&quot;</span><span class="nt">&gt;</span>
+<div class="highlight-html+django"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">select</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;classifiers&quot;</span> <span class="na">multiple</span><span class="o">=</span><span class="s">&quot;multiple&quot;</span> <span class="na">size</span><span class="o">=</span><span class="s">&quot;10&quot;</span><span class="p">&gt;</span>
     <span class="cp">{%</span> <span class="k">for</span> <span class="nv">node</span><span class="o">,</span><span class="nv">structure</span> <span class="k">in</span> <span class="nv">classifiers</span><span class="o">|</span><span class="nf">tree_info</span><span class="s2">:&quot;ancestors&quot;</span> <span class="cp">%}</span>
         <span class="cp">{%</span> <span class="k">if</span> <span class="nv">node.is_child_node</span> <span class="cp">%}</span>
-            <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">node.pk</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="nt">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">option</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">node.pk</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>
                 <span class="cp">{{</span> <span class="nv">structure.ancestors</span><span class="o">|</span><span class="nf">tree_path</span> <span class="cp">}}</span> :: <span class="cp">{{</span> <span class="nv">node</span> <span class="cp">}}</span>
-            <span class="nt">&lt;/option&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">option</span><span class="p">&gt;</span>
         <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
     <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
-<span class="nt">&lt;/select&gt;</span>
+<span class="p">&lt;/</span><span class="nt">select</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -377,7 +377,7 @@ to create a multiple-select, which:</p>
         <li class="right" >
           <a href="forms.html" title="Working with trees in Django forms"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">django-mptt 0.8.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">django-mptt 0.8.6 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

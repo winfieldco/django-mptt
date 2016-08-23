@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Working with trees in Django forms &mdash; django-mptt 0.8.1 documentation</title>
+    <title>Working with trees in Django forms &mdash; django-mptt 0.8.6 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.8.1',
+        VERSION:     '0.8.6',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="django-mptt 0.8.1 documentation" href="index.html" />
+    <link rel="top" title="django-mptt 0.8.6 documentation" href="index.html" />
     <link rel="next" title="Working with trees in templates" href="templates.html" />
     <link rel="prev" title="Admin classes" href="admin.html" /> 
   </head>
@@ -43,7 +43,7 @@
         <li class="right" >
           <a href="admin.html" title="Admin classes"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">django-mptt 0.8.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">django-mptt 0.8.6 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -82,11 +82,11 @@ package.</p>
 <p>A subclass of <a class="reference external" href="http://docs.djangoproject.com/en/dev/ref/forms/fields/#django.forms.ModelChoiceField">ModelChoiceField</a> which represents the tree level of
 each node when generating option labels.</p>
 <p>For example, where a form which used a <code class="docutils literal"><span class="pre">ModelChoiceField</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">category</span> <span class="o">=</span> <span class="n">ModelChoiceField</span><span class="p">(</span><span class="n">queryset</span><span class="o">=</span><span class="n">Category</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">())</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">category</span> <span class="o">=</span> <span class="n">ModelChoiceField</span><span class="p">(</span><span class="n">queryset</span><span class="o">=</span><span class="n">Category</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>...would result in a select with the following options:</p>
-<div class="highlight-python"><div class="highlight"><pre>---------
+<div class="highlight-python"><div class="highlight"><pre><span></span>---------
 Root 1
 Child 1.1
 Child 1.1.1
@@ -96,11 +96,11 @@ Child 2.1.1
 </pre></div>
 </div>
 <p>Using a <code class="docutils literal"><span class="pre">TreeNodeChoiceField</span></code> instead:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">category</span> <span class="o">=</span> <span class="n">TreeNodeChoiceField</span><span class="p">(</span><span class="n">queryset</span><span class="o">=</span><span class="n">Category</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">())</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">category</span> <span class="o">=</span> <span class="n">TreeNodeChoiceField</span><span class="p">(</span><span class="n">queryset</span><span class="o">=</span><span class="n">Category</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>...would result in a select with the following options:</p>
-<div class="highlight-python"><div class="highlight"><pre>Root 1
+<div class="highlight-python"><div class="highlight"><pre><span></span>Root 1
 --- Child 1.1
 ------ Child 1.1.1
 Root 2
@@ -110,13 +110,13 @@ Root 2
 </div>
 <p>The text used to indicate a tree level can by customised by providing a
 <code class="docutils literal"><span class="pre">level_indicator</span></code> argument:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">category</span> <span class="o">=</span> <span class="n">TreeNodeChoiceField</span><span class="p">(</span><span class="n">queryset</span><span class="o">=</span><span class="n">Category</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span>
-                               <span class="n">level_indicator</span><span class="o">=</span><span class="s">u&#39;+--&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">category</span> <span class="o">=</span> <span class="n">TreeNodeChoiceField</span><span class="p">(</span><span class="n">queryset</span><span class="o">=</span><span class="n">Category</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span>
+                               <span class="n">level_indicator</span><span class="o">=</span><span class="s1">u&#39;+--&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>...which for this example would result in a select with the following
 options:</p>
-<div class="highlight-python"><div class="highlight"><pre>Root 1
+<div class="highlight-python"><div class="highlight"><pre><span></span>Root 1
 +-- Child 1.1
 +--+-- Child 1.1.1
 Root 2
@@ -204,7 +204,7 @@ the error message is displayed to the user.</p>
 <div class="section" id="example-usage">
 <h4>Example usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h4>
 <p>A sample view which shows basic usage of the form is provided below:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponseRedirect</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponseRedirect</span>
 <span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render_to_response</span>
 
 <span class="kn">from</span> <span class="nn">faqs.models</span> <span class="kn">import</span> <span class="n">Category</span>
@@ -213,7 +213,7 @@ the error message is displayed to the user.</p>
 
 <span class="k">def</span> <span class="nf">move_category</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">category_pk</span><span class="p">):</span>
     <span class="n">category</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Category</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="n">category_pk</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&#39;POST&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
         <span class="n">form</span> <span class="o">=</span> <span class="n">MoveNodeForm</span><span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
             <span class="k">try</span><span class="p">:</span>
@@ -224,10 +224,10 @@ the error message is displayed to the user.</p>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">form</span> <span class="o">=</span> <span class="n">MoveNodeForm</span><span class="p">(</span><span class="n">category</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">render_to_response</span><span class="p">(</span><span class="s">&#39;faqs/move_category.html&#39;</span><span class="p">,</span> <span class="p">{</span>
-        <span class="s">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">,</span>
-        <span class="s">&#39;category&#39;</span><span class="p">:</span> <span class="n">category</span><span class="p">,</span>
-        <span class="s">&#39;category_tree&#39;</span><span class="p">:</span> <span class="n">Category</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span>
+    <span class="k">return</span> <span class="n">render_to_response</span><span class="p">(</span><span class="s1">&#39;faqs/move_category.html&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="s1">&#39;form&#39;</span><span class="p">:</span> <span class="n">form</span><span class="p">,</span>
+        <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="n">category</span><span class="p">,</span>
+        <span class="s1">&#39;category_tree&#39;</span><span class="p">:</span> <span class="n">Category</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span>
     <span class="p">})</span>
 </pre></div>
 </div>
@@ -310,7 +310,7 @@ the error message is displayed to the user.</p>
         <li class="right" >
           <a href="admin.html" title="Admin classes"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">django-mptt 0.8.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">django-mptt 0.8.6 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

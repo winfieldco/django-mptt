@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Admin classes &mdash; django-mptt 0.8.1 documentation</title>
+    <title>Admin classes &mdash; django-mptt 0.8.6 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.8.1',
+        VERSION:     '0.8.6',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="django-mptt 0.8.1 documentation" href="index.html" />
+    <link rel="top" title="django-mptt 0.8.6 documentation" href="index.html" />
     <link rel="next" title="Working with trees in Django forms" href="forms.html" />
     <link rel="prev" title="Models and Managers" href="models.html" /> 
   </head>
@@ -43,7 +43,7 @@
         <li class="right" >
           <a href="models.html" title="Models and Managers"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">django-mptt 0.8.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">django-mptt 0.8.6 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -60,7 +60,7 @@
 in the tree to make a pretty tree list view.</p>
 <a class="reference internal image-reference" href="_images/mpttmodeladmin-genres.png"><img alt="MPTTModelAdmin screenshot" class="align-center" src="_images/mpttmodeladmin-genres.png" style="width: 26.21cm;" /></a>
 <p>Usage:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
 <span class="kn">from</span> <span class="nn">mptt.admin</span> <span class="kn">import</span> <span class="n">MPTTModelAdmin</span>
 <span class="kn">from</span> <span class="nn">myproject.myapp.models</span> <span class="kn">import</span> <span class="n">Node</span>
 
@@ -69,18 +69,18 @@ in the tree to make a pretty tree list view.</p>
 </div>
 <p>You can change the indent pixels per level globally by putting this in your
 settings.py:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># default is 10 pixels</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># default is 10 pixels</span>
 <span class="n">MPTT_ADMIN_LEVEL_INDENT</span> <span class="o">=</span> <span class="mi">20</span>
 </pre></div>
 </div>
 <p>If you&#8217;d like to specify the pixel amount per Model, define an <code class="docutils literal"><span class="pre">mptt_level_indent</span></code>
 attribute in your MPTTModelAdmin:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
 <span class="kn">from</span> <span class="nn">mptt.admin</span> <span class="kn">import</span> <span class="n">MPTTModelAdmin</span>
 <span class="kn">from</span> <span class="nn">myproject.myapp.models</span> <span class="kn">import</span> <span class="n">Node</span>
 
 <span class="k">class</span> <span class="nc">CustomMPTTModelAdmin</span><span class="p">(</span><span class="n">MPTTModelAdmin</span><span class="p">):</span>
-    <span class="c"># specify pixel amount for this ModelAdmin only:</span>
+    <span class="c1"># specify pixel amount for this ModelAdmin only:</span>
     <span class="n">mptt_level_indent</span> <span class="o">=</span> <span class="mi">20</span>
 
 <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Node</span><span class="p">,</span> <span class="n">CustomMPTTModelAdmin</span><span class="p">)</span>
@@ -88,10 +88,10 @@ attribute in your MPTTModelAdmin:</p>
 </div>
 <p>If you&#8217;d like to specify which field should be indented, add an <code class="docutils literal"><span class="pre">mptt_indent_field</span></code>
 to your MPTTModelAdmin:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># …</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># …</span>
 <span class="k">class</span> <span class="nc">CustomMPTTModelAdmin</span><span class="p">(</span><span class="n">MPTTModelAdmin</span><span class="p">):</span>
-    <span class="n">mptt_indent_field</span> <span class="o">=</span> <span class="s">&quot;some_node_field&quot;</span>
-<span class="c"># …</span>
+    <span class="n">mptt_indent_field</span> <span class="o">=</span> <span class="s2">&quot;some_node_field&quot;</span>
+<span class="c1"># …</span>
 </pre></div>
 </div>
 </div>
@@ -103,7 +103,7 @@ to your MPTTModelAdmin:</p>
 <a class="reference internal image-reference" href="_images/draggablempttadmin-genres.png"><img alt="DraggableMPTTAdmin screenshot" class="align-center" src="_images/draggablempttadmin-genres.png" style="width: 26.39cm;" /></a>
 <p>This is a tree admin based on <a class="reference external" href="https://github.com/feincms/feincms/">FeinCMS</a> offering drag-drop functionality for
 moving nodes:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
 <span class="kn">from</span> <span class="nn">mptt.admin</span> <span class="kn">import</span> <span class="n">DraggableMPTTAdmin</span>
 <span class="kn">from</span> <span class="nn">myproject.myapp.models</span> <span class="kn">import</span> <span class="n">Node</span>
 
@@ -111,12 +111,12 @@ moving nodes:</p>
     <span class="n">Node</span><span class="p">,</span>
     <span class="n">DraggableMPTTAdmin</span><span class="p">,</span>
     <span class="n">list_display</span><span class="o">=</span><span class="p">(</span>
-        <span class="s">&#39;tree_actions&#39;</span><span class="p">,</span>
-        <span class="s">&#39;indented_title&#39;</span><span class="p">,</span>
-        <span class="c"># ...more fields if you feel like it...</span>
+        <span class="s1">&#39;tree_actions&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;indented_title&#39;</span><span class="p">,</span>
+        <span class="c1"># ...more fields if you feel like it...</span>
     <span class="p">),</span>
     <span class="n">list_display_links</span><span class="o">=</span><span class="p">(</span>
-        <span class="s">&#39;indented_title&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;indented_title&#39;</span><span class="p">,</span>
     <span class="p">),</span>
 <span class="p">)</span>
 </pre></div>
@@ -144,19 +144,19 @@ pagination for most trees).</p>
 <h3>Replacing <code class="docutils literal"><span class="pre">indented_title</span></code><a class="headerlink" href="#replacing-indented-title" title="Permalink to this headline">¶</a></h3>
 <p>If you want to replace the <code class="docutils literal"><span class="pre">indented_title</span></code> method with your own, we
 recommend using the following code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.utils.html</span> <span class="kn">import</span> <span class="n">format_html</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.utils.html</span> <span class="kn">import</span> <span class="n">format_html</span>
 
 <span class="k">class</span> <span class="nc">MyDraggableMPTTAdmin</span><span class="p">(</span><span class="n">DraggableMPTTAdmin</span><span class="p">):</span>
-    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;tree_actions&#39;</span><span class="p">,</span> <span class="s">&#39;something&#39;</span><span class="p">)</span>
-    <span class="n">list_display_links</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;something&#39;</span><span class="p">,)</span>
+    <span class="n">list_display</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;tree_actions&#39;</span><span class="p">,</span> <span class="s1">&#39;something&#39;</span><span class="p">)</span>
+    <span class="n">list_display_links</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;something&#39;</span><span class="p">,)</span>
 
     <span class="k">def</span> <span class="nf">something</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">format_html</span><span class="p">(</span>
-            <span class="s">&#39;&lt;div style=&quot;text-indent:{}px&quot;&gt;{}&lt;/div&gt;&#39;</span><span class="p">,</span>
-            <span class="n">instance</span><span class="o">.</span><span class="n">_mpttfield</span><span class="p">(</span><span class="s">&#39;level&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">mptt_level_indent</span><span class="p">,</span>
-            <span class="n">item</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>  <span class="c"># Or whatever you want to put here</span>
+            <span class="s1">&#39;&lt;div style=&quot;text-indent:{}px&quot;&gt;{}&lt;/div&gt;&#39;</span><span class="p">,</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">_mpttfield</span><span class="p">(</span><span class="s1">&#39;level&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">mptt_level_indent</span><span class="p">,</span>
+            <span class="n">item</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>  <span class="c1"># Or whatever you want to put here</span>
         <span class="p">)</span>
-    <span class="n">something</span><span class="o">.</span><span class="n">short_description</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;something nice&#39;</span><span class="p">)</span>
+    <span class="n">something</span><span class="o">.</span><span class="n">short_description</span> <span class="o">=</span> <span class="n">_</span><span class="p">(</span><span class="s1">&#39;something nice&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>For changing the indentation per node, look below. Simply replacing
@@ -173,10 +173,38 @@ and JavaScript on top, so simply follow the official guide for
 <h3>Changing the indentation of nodes<a class="headerlink" href="#changing-the-indentation-of-nodes" title="Permalink to this headline">¶</a></h3>
 <p>Simply set <code class="docutils literal"><span class="pre">mptt_level_indent</span></code> to a different pixel value (defaults
 to <code class="docutils literal"><span class="pre">20</span></code>):</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># ...</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># ...</span>
 <span class="k">class</span> <span class="nc">MyDraggableMPTTAdmin</span><span class="p">(</span><span class="n">DraggableMPTTAdmin</span><span class="p">):</span>
     <span class="n">mptt_level_indent</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="c"># ...</span>
+<span class="c1"># ...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="mptt-admin-treerelatedfieldlistfilter">
+<h2><code class="docutils literal"><span class="pre">mptt.admin.TreeRelatedFieldListFilter</span></code><a class="headerlink" href="#mptt-admin-treerelatedfieldlistfilter" title="Permalink to this headline">¶</a></h2>
+<p>Admin filter class which filters models related to parent model with all it&#8217;s descendants.</p>
+<a class="reference internal image-reference" href="_images/treerelatedfieldlistlilter-genres.png"><img alt="MPTTModelAdmin screenshot" class="align-center" src="_images/treerelatedfieldlistlilter-genres.png" style="width: 26.21cm;" /></a>
+<p>Usage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>from mptt.admin import TreeRelatedFieldListFilter
+
+@admin.register(models.MyModel)
+class MyModelAdmin(admin.ModelAdmin):
+    model = models.MyModel
+    list_filter =
+    (
+        (&#39;my_related_model&#39;, TreeRelatedFieldListFilter),
+    )
+</pre></div>
+</div>
+<div class="section" id="changing-the-indentation-of-list-filter-nodes">
+<h3>Changing the indentation of list filter nodes<a class="headerlink" href="#changing-the-indentation-of-list-filter-nodes" title="Permalink to this headline">¶</a></h3>
+<p>Simply set <code class="docutils literal"><span class="pre">mptt_level_indent</span></code> to a different pixel value (defaults
+to <code class="docutils literal"><span class="pre">10</span></code>):</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span># ...
+class MyTreeRelatedFieldListFilter(TreeRelatedFieldListFilter):
+mptt_level_indent = 20
+# ...
 </pre></div>
 </div>
 </div>
@@ -197,6 +225,10 @@ to <code class="docutils literal"><span class="pre">20</span></code>):</p>
 <li><a class="reference internal" href="#replacing-indented-title">Replacing <code class="docutils literal"><span class="pre">indented_title</span></code></a></li>
 <li><a class="reference internal" href="#overriding-admin-templates-per-app-or-model">Overriding admin templates per app or model</a></li>
 <li><a class="reference internal" href="#changing-the-indentation-of-nodes">Changing the indentation of nodes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mptt-admin-treerelatedfieldlistfilter"><code class="docutils literal"><span class="pre">mptt.admin.TreeRelatedFieldListFilter</span></code></a><ul>
+<li><a class="reference internal" href="#changing-the-indentation-of-list-filter-nodes">Changing the indentation of list filter nodes</a></li>
 </ul>
 </li>
 </ul>
@@ -248,7 +280,7 @@ to <code class="docutils literal"><span class="pre">20</span></code>):</p>
         <li class="right" >
           <a href="models.html" title="Models and Managers"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">django-mptt 0.8.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">django-mptt 0.8.6 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
