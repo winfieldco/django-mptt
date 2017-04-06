@@ -168,6 +168,12 @@ class MPTTOptions(object):
                 field = instance._meta.get_field(field_name)
                 value = field.pre_save(instance, True)
 
+            # Support null char fields,
+            # http://stackoverflow.com/questions/26735796/django-mptt-valueerror-cannot-use-none-as-a-query-value
+            if value == None:            
+                if isinstance(instance._meta.get_field(field_name), models.CharField):
+                    value = ''                  
+
             q = Q(**{field_name + filter_suffix: value})
 
             filters__append(reduce(and_, [Q(**{f: v}) for f, v in fields] + [q]))
