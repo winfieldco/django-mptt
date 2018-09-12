@@ -9,6 +9,7 @@ except ImportError:  # pragma: no cover (Django 1.6 compatibility)
     from django.contrib.admin.util import lookup_field, display_for_field
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
+import HTMLParser
 from django.template import Library
 from django.utils.html import escape, conditional_escape
 from django.utils.safestring import mark_safe
@@ -94,7 +95,7 @@ def mptt_items_for_result(cl, result, form):
                     else:
                         result_repr = escape(field_val)
                 else:
-                    result_repr = display_for_field(value, f)
+                    result_repr = display_for_field(value, f, get_empty_value_display(cl))
                 if isinstance(f, models.DateField)\
                         or isinstance(f, models.TimeField)\
                         or isinstance(f, models.ForeignKey):
@@ -147,7 +148,7 @@ def mptt_items_for_result(cl, result, form):
             else:
                 result_repr = conditional_escape(result_repr)
             # #### MPTT SUBSTITUTION START
-            yield mark_safe('<td%s%s>%s</td>' % (row_class, padding_attr, result_repr))
+            yield mark_safe('<td%s%s>%s</td>' % (row_class, padding_attr, HTMLParser.HTMLParser().unescape(result_repr)))
             # #### MPTT SUBSTITUTION END
     if form and not form[cl.model._meta.pk.name].is_hidden:
         yield mark_safe('<td>%s</td>' % force_text(form[cl.model._meta.pk.name]))

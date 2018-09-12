@@ -22,7 +22,7 @@ setup(
     name=str('django-mptt'),
     description=str('''Utilities for implementing Modified Preorder Tree Traversal
         with your Django Models and working with trees of Model instances.'''),
-    version=version + '-post2',
+    version=version + '-post3',
     author=str('Craig de Stigter'),
     author_email=str('craig.ds@gmail.com'),
     url=str('http://github.com/django-mptt/django-mptt'),
